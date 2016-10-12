@@ -34,6 +34,7 @@ usage()
 "    -D,--dslink=string  set the dslink name of this. (default:%s)\n"
 "    -l,--log=level      set the log level.  (info,none,..., default:%s)\n"
 "    -m,--max-count=num  set the max value of the counter. (default:%d)\n"
+"                        see -p option also.\n"
 "    -p,--policy=num     set the policy to decide whether to finish\n"
 "                        the measurement. (default:%d)\n"
 "                          0: counter in the message reaches.\n"

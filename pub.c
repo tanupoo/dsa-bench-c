@@ -36,6 +36,7 @@ usage()
 "    -s,--size=size      set the size in bytes of the value. (default:%d)\n"
 "    -i,--interval=num   set the interval in msec to update. (default:%d)\n"
 "    -m,--max-count=num  set the max value of the counter. (default:%d)\n"
+"                        i.e. how many messages to be sent.\n"
 "    -n,--node=string    set the dslink name of this. (default:%s)\n"
 "    -d,--debug          increase verbosity.\n"
 "    -h,--help           show this help menu.\n"

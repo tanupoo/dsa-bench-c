@@ -57,7 +57,7 @@ CPPFLAGS += -I.
 CPPFLAGS += -I/usr/local/include
 
 CFLAGS += -Werror -Wall
-CFLAGS += -g
+CFLAGS += -g -O2
 
 LDFLAGS	+= -L/usr/local/lib
 

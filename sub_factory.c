@@ -80,18 +80,21 @@ sub_on_value_update(struct DSLink *link, uint32_t sid, json_t *val,
 	mi.len_hdr = 0;
 	mi.len_sys = 0;
 
-	if (f_debug)
-		printf("Got sid=%d v=%s\n", sid, s_val);
+	if (f_debug) {
+		printf("got %s\n", s_val);
+		if (f_debug > 1)
+		printf("  sid=%d\n",sid);
+	}
 
 	smelt_start_ts(mt, &mi, s_time); /* ts */
-	if (f_debug)
+	if (f_debug > 1)
 		printf("  ts=%s\n", s_time);
 #ifdef USE_SMELT_E_TS
 {
 	char buf[64];
 	strftimeval_current(buf, sizeof(buf), NULL);
 	smelt_end_ts(mt, &mi, buf);
-	if (f_debug)
+	if (f_debug > 1)
 		printf("  recv=%s\n", buf);
 }
 #else

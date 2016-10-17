@@ -21,7 +21,7 @@ clone the smelt library.  Then, make it.
 
 ## how to run
 
-don't forget to set LD_LIBRARY_PAT like below.
+don't forget to set LD_LIBRARY_PATH like below.
 
     e.g.
     % export LD_LIBRARY_PATH=$DSLINK_SDK_DIR/build:./smelt

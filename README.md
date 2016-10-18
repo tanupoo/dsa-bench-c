@@ -16,18 +16,30 @@ See README.md for detail.
 
 Briefly, you just clone the SDK, and type ./tools/build.sh.
 
-    % git clone https://github.com/IOT-DSA/sdk-dslink-c.git
+    % git clone http://github.com/IOT-DSA/sdk-dslink-c.git
     % cd sdk-dslink-c
     % ./tools/build.sh
 
 ## how to build
 
-set the full path to the DSLink SDK directory into DSLINK_SDK_DIR.
-clone the smelt library.  Then, make it.
+To get the source code of this tool, you just clone it like below.
+
+    % git clone http://github.com/tanupoo/dsa-bench-c.git
+    % cd dsa-bench-c
+
+You have to clone the smelt library to the current directory.
+If you don't want to do so, you have to modify Makefile.
+
+    % git clone http://github.com/tanupoo/smelt.git
+
+You also have to set the full path to the DSLink SDK directory
+into DSLINK_SDK_DIR.
 
     e.g.
     % export DSLINK_SDK_DIR=/opt/dsa/sdk-dslink-c
-    % git clone https://github.com/tanupoo/smelt.git
+
+Then, make it.
+
     % make
 
 ## how to run

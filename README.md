@@ -9,6 +9,17 @@ the requester finishes to subscribe until the message counter
 reaches the specified number,
 or the number of messages specified are received.
 
+## Preparation
+
+before you build this tool, you have to make the DSLink SDK C.
+See README.md for detail.
+
+Briefly, you just clone the SDK, and type ./tools/build.sh.
+
+    % git clone https://github.com/IOT-DSA/sdk-dslink-c.git
+    % cd sdk-dslink-c
+    % ./tools/build.sh
+
 ## how to build
 
 set the full path to the DSLink SDK directory into DSLINK_SDK_DIR.

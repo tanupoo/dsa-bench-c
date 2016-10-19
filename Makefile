@@ -84,7 +84,7 @@ ifneq ($(RMFILES),)
 	-rm -rf $(RMFILES)
 endif
 ifdef	DIRS
-	for d in $(DIRS) ; do (cd $$d ; make clean); done
+	for d in $(DIRS) ; do if test -d $$d ; then (cd $$d ; make clean); fi ; done
 endif
 ifneq ($(TARGETS),)
 	-rm -f $(TARGETS)

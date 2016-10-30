@@ -160,7 +160,6 @@ factory_init(DSLink *link, DSNode *super_root)
 	return 0;
 }
 
-// Called to initialize your node structure.
 static void
 pub_on_init(DSLink *link)
 {
@@ -170,37 +169,27 @@ pub_on_init(DSLink *link)
 	log_info("Initialized!\n");
 }
 
-// Called when the DSLink is connected.
 static void
 pub_on_connected(DSLink *link)
 {
-	(void) link;
 	log_info("Connected!\n");
 }
 
-// Called when the DSLink is disconnected.
-// If this was not initiated by dslink_close,
-// then a reconnection attempt is made.
 static void
 pub_on_disconnected(DSLink *link)
 {
-	(void) link;
 	log_info("Disconnected!\n");
 }
 
-// The main function.
 int
 responder_start(int argc, char **argv, char *my_name)
 {
-	DSLinkCallbacks cbs = { // Create our callback struct.
-	    pub_on_init,         // init_cb
-	    pub_on_connected,    //on_connected_cb
-	    pub_on_disconnected, // on_disconnected_cb
-	    NULL                 // on_requester_ready_cb
+	DSLinkCallbacks cbs = {
+	    pub_on_init,
+	    pub_on_connected,
+	    pub_on_disconnected,
+	    NULL
 	};
 
-	// Initializes a DSLink and handles reconnection.
-	// Pass command line arguments, our dsId, requester or responder?
-	// and a reference to our callbacks.
 	return dslink_init(argc, argv, my_name, 0, 1, &cbs);
 }

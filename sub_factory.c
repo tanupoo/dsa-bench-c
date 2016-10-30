@@ -131,31 +131,21 @@ sub_on_ready(DSLink *link)
 	((RequestHolder *)ref->data)->close_cb = sub_on_req_close;
 }
 
-// Called to initialize your node structure.
 static void
 sub_on_init(DSLink *link)
 {
-//	if (factory_init(link, link->responder->super_root) < 0)
-//		errx(1, "ERROR: factory_init() failed.");
-
 	log_info("Initialized!\n");
 }
 
-// Called when the DSLink is connected.
 static void
 sub_on_connected(DSLink *link)
 {
-	(void) link;
 	log_info("Connected!\n");
 }
 
-// Called when the DSLink is disconnected.
-// If this was not initiated by dslink_close,
-// then a reconnection attempt is made.
 static void
 sub_on_disconnected(DSLink *link)
 {
-	(void) link;
 	log_info("Disconnected!\n");
 }
 
@@ -163,11 +153,11 @@ sub_on_disconnected(DSLink *link)
 int
 requester_start(int argc, char **argv, char *my_name)
 {
-	DSLinkCallbacks cbs = {  // Create our callback struct.
-	    sub_on_init,         // init_cb
-	    sub_on_connected,    //on_connected_cb
-	    sub_on_disconnected, // on_disconnected_cb
-	    sub_on_ready         // on_requester_ready_cb
+	DSLinkCallbacks cbs = {
+	    sub_on_init,
+	    sub_on_connected,
+	    sub_on_disconnected,
+	    sub_on_ready
 	};
 
 	/*
@@ -186,8 +176,5 @@ requester_start(int argc, char **argv, char *my_name)
 	mt = smelt_init(SMELT_MODE_S_TS, 100000, 0, 0, 0);
 #endif
 
-	// Initializes a DSLink and handles reconnection.
-	// Pass command line arguments, our dsId, requester or responder?
-	// and a reference to our callbacks.
 	return dslink_init(argc, argv, my_name, 1, 0, &cbs);
 }
